@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'rest_framework',
     'tailwind',
     'theme',
+    'django_browser_reload',
 
     # sub apps
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -52,6 +54,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'store.urls'
@@ -130,7 +133,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-#for tailwind
+# For tailwind
 TAILWIND_APP_NAME = 'theme'
 
 INTERNAL_IPS = [
@@ -138,3 +141,6 @@ INTERNAL_IPS = [
 ]
 
 NPM_BIN_PATH = "C:/Users/prana/AppData/Roaming/npm/npm.cmd"
+
+# Specify the custom user model
+AUTH_USER_MODEL = 'users.CustomUser'
