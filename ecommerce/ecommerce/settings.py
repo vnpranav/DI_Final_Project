@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'tailwind',
     'theme',
     'django_browser_reload',
+
+    #sub apps
+    'store',
 ]
 
 #settings for tailwind
