@@ -3,3 +3,7 @@ testing the repository
 admin
 v.pranav.n@gmail.com
 admin
+
+testuser
+joe
+joe12345
