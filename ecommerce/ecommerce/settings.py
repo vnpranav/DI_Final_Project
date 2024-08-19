@@ -41,9 +41,10 @@ INSTALLED_APPS = [
     'compressor',
     'tailwind',
     'theme',
-    'django_browser_reload'
+    # 'django_browser_reload'
 
-
+    # Sub apps
+    'store'
     
 ]
 
@@ -70,7 +71,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "django_browser_reload.middleware.BrowserReloadMiddleware",
+    # "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'ecommerce.urls'
@@ -99,8 +100,11 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'electronoot_db',
+        'USER': 'neondb_owner',
+        'PASSWORD': 'P94MqhyGBxez',
+        'HOST': 'ep-small-art-a5p8carx.us-east-2.aws.neon.tech',
     }
 }
 
