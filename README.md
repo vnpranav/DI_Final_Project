@@ -20,6 +20,6 @@ Users will also be able to view their orders
 There will also be an admin page where staff can alter the databases
 
 Tech Stack : 
-Front end : Html Css (Tailwind) Javascript Django
+Front end : Html Css (Bootstrap) Javascript Django
 Back end : Django
 Database : postgres using neondb
