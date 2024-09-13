@@ -1,0 +1,37 @@
+{% extends "store/layouts/main.html" %}
+
+{%block title%}
+{{brand_name.name}}
+{%endblock title%}
+
+{% block content %}
+
+<div class='container'>
+   <a href="{%url 'index'%}">Home / </a>
+   <a href="{%url 'brands'%}">Brands / </a>
+   <a href="{%url 'brand_view' brand.slug%}">{{brand.name}}</a>
+</div>
+<hr/>
+<div class="container">
+   <div class="row">
+      
+      {%for item in products %}
+      
+      <div class="col-md-4 mb-4">
+         <div class="card">
+            <a href="{% url 'product_view' brand.slug item.slug %}">
+               <img class="card-img-top p-3 rounded" src="/static/{{ item.product_image }}" alt="Product image cap" width='250px' height='240px'>
+               <div class="card-body">
+                  <h5 class="card-title">{{ item.name }}</h5>
+                  <span class='float-start'>{{item.selling_price}}</span>
+                  <span class='float-end'>{{item.original_price}}</span>
+               </div>
+            </a>
+         </div>
+      </div>
+     {%endfor%}
+   </div> 
+</div>
+
+
+{% endblock content%}

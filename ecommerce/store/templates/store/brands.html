@@ -1,0 +1,30 @@
+{% extends "store/layouts/main.html" %}
+
+{%block title%}
+Brands
+{%endblock title%}
+
+{% block content %}
+<h1>Hello from Brands</h1>
+<hr/>
+<div class="container">
+   <div class="row">
+      
+      {%for item in brands %}
+      
+      <div class="col-md-4 mb-4">
+         <div class="card">
+            <a href="{%url 'brand_view' item.slug%}">
+               <img class="card-img-top p-3 rounded" src="/static/{{ item.image }}" alt="Card image cap" width='250px' height='240px'>
+               <div class="card-body">
+                  <h5 class="card-title">{{ item.name }}</h5>
+               </div>
+            </a>
+         </div>
+      </div>
+     {%endfor%}
+   </div> 
+</div>
+
+
+{% endblock content%}
