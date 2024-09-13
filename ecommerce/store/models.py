@@ -48,8 +48,7 @@ class Brand(models.Model):
    slug = models.CharField(max_length=150, null=False, blank=False)
    name = models.CharField(max_length=150, null=False, blank=False)
    image = models.ImageField(upload_to=get_file_path, height_field=None, width_field=None, max_length=None, null=True, blank=True)
-   description = models.TextField(max_length=500, null=False, blank=False)
-
+   
    #meta attributes used for searching and for slugs
    #they have been added for future use or project expansion
    meta_title = models.CharField(max_length=150, null=False, blank=False)
