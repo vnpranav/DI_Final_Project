@@ -5,12 +5,11 @@ Home page
 {%endblock title%}
 
 {% block content %}
-<div class="container my-5">
+<div class="container mt-3">
    <h1>Welcome to our store!</h1>
    <hr/>
    <div class="row">
       <h2>Trending Products</h2>
-      <hr/>
       {% for item in trending_products %}
          <div class="col-md-3 p-2 product_data">
             {% csrf_token %}
@@ -18,12 +17,12 @@ Home page
                <input type='hidden' id='quantity' name='quantity' value='1' class='form-control qty-input text-center'>
                <input class="prod_id" type="hidden" value="{{ item.id }}">
                <a href="{%url 'product_view' item.brand.slug item.slug %}">
-                  <img class="card-img-top" src="/static/{{item.product_image}}" alt="Card image cap">
-                  <h4 class="text-center">{{item.name}}</h4>
+                  <img class="card-img-top" src="/static/{{item.product_image}}" alt="Card image cap" height="200px" width="200px">
+                  <h4 class="text-center mt-2">{{item.name}}</h4>
                </a>
-               <div class="text-dark text-center">Rs {{item.selling_price}}</div>
+               <div class="text-dark text-center mt-1">Rs {{item.selling_price}}</div>
                {% if item.quantity > 0 %}
-                  <button type='button' class='btn btn-primary addToCartBtn w-50 mb-3 mx-auto'>Add to cart <i class="fa fa-cart-plus"></i></button>
+                  <button type='button' class='btn btn-primary addToCartBtn w-50 mb-3 mx-auto mt-2'>Add to cart <i class="fa fa-cart-plus"></i></button>
                {% else %}
                   <label class='badge bg-danger'>Out of stock </label>
                {% endif %}
@@ -33,5 +32,8 @@ Home page
    </div>
 </div>
 
-{% comment %} {% include 'store/inc/slider.html' %} {% endcomment %}
 {% endblock content%}
+
+{% block scripts %}
+
+{% endblock scripts %}

@@ -1,9 +1,9 @@
-from django.shortcuts import render, redirect
-from django.contrib import messages
+from django.shortcuts import render, redirect, get_object_or_404
+from store.models import *
 from django.http.response import JsonResponse
-from store.models import Product, Cart
 from django.contrib.auth.decorators import login_required
 
+@login_required(login_url='loginpage')
 def addtocart(request):
    if request.method == 'POST':
       if request.user.is_authenticated:
@@ -34,7 +34,7 @@ def cart(request):
    context = {'cart' : carts}
    return render(request,"store/cart.html", context)
 
-
+@login_required(login_url='loginpage')
 def updatecart(request):
    if request.method == 'POST':
       product_id = int(request.POST.get('prod_id'))
@@ -46,8 +46,8 @@ def updatecart(request):
          return JsonResponse({'status' : 'Product quantity updated'})
    else:
       return redirect("/index")
-   
 
+@login_required(login_url='loginpage')   
 def removecart(request):
    if request.method == 'POST':
       product_id = int(request.POST.get('prod_id'))
@@ -58,4 +58,8 @@ def removecart(request):
       else:
          return JsonResponse({'status' : 'Product not found in cart'})
    return redirect("/index")
+
+   
+
+
 

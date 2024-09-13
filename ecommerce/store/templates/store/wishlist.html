@@ -1,16 +1,17 @@
 {% extends "store/layouts/main.html" %}
 
 {%block title%}
-Cart
+WishList
 {%endblock title%}
 
 {% block content %}
 
+<div class="bg-primary py-3">
 <div class='container'>
-   <a href="{%url 'index'%}">Home / </a>
-   <a href="{%url 'wishlist'%}"> Wishlist / </a>
+   <a class="text-white" href="{%url 'index'%}">Home / </a>
+   <a class="text-white" href="{%url 'wishlist'%}"> Wishlist / </a>
 </div>
-<hr/>
+</div>
 
 <div class='py-5'>
    <div class='container'>

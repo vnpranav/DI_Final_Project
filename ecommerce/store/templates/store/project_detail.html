@@ -1,0 +1,43 @@
+{% extends "store/layouts/main.html" %}
+
+{% block title %}
+{{project.name}}
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-2">
+   <h1>{{ project.name }}</h1>
+   <hr/>
+   <img class="mt-3" src="/static/{{project.project_image}}" alt="{{ project.name }}" class="img-fluid">
+   <p>{{ project.description }}</p>
+   <br/>
+   <div>Project link : <a href="{{project.project_link}}">Here</a></div>
+   <br/>
+
+   <h3>Products Required:</h3>
+   <table class="table">
+       <thead>
+           <tr>
+               <th>Product</th>
+               <th>Quantity</th>
+           </tr>
+       </thead>
+       <tbody>
+           {% for project_product in project_products %}
+               <tr>
+                   <td>{{ project_product.product.name }}</td>
+                   <td>{{ project_product.quantity }}</td>
+               </tr>
+           {% endfor %}
+       </tbody>
+   </table>
+    </br>
+   <form action="{% url 'add_project_to_cart' project.slug %}" method="post">
+      {% csrf_token %}
+      <div class="mt-4 text-center w-100"><button type="submit" class="btn btn-primary">Add Project to Cart</button></div>
+  </form>
+</div>
+
+
+{% endblock content %}
+

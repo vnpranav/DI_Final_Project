@@ -18,7 +18,7 @@ def register(request):
 def loginpage(request):
    if request.user.is_authenticated:
       messages.warning(request, 'You are already logged in')
-      return redirect('/index')
+      return redirect('/')
    else:
       if request.method == 'POST':
          username = request.POST.get('username')
@@ -28,7 +28,7 @@ def loginpage(request):
          if user is not None:
             login(request, user)
             messages.success(request , "Logged in successfully")
-            return redirect('/index')
+            return redirect('/')
          else:
             messages.error(request, "Invalid username or password")
             return redirect('/login')
@@ -39,7 +39,7 @@ def logoutpage(request):
    if request.user.is_authenticated:
       logout(request)
       messages.success(request, "Logoged out successfully")
-      return redirect('/login')
+      return redirect('/')
    else:
       messages.warning(request, "You are not logged in")
-      return redirect('/login')
+      return redirect('/')

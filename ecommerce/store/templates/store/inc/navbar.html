@@ -1,11 +1,10 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Electro-Noot</a>
+<nav class="navbar navbar-expand-lg bg-body-secondary">
+  <div class="container-fluid   py-2 mx-4">
+    <a class="navbar-brand" href="{% url "index" %}">Electro-Noot</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    
-    
+  
       <div class="search-bar">
         <form action="{% url "searchproduct" %}" method="POST">
           {% csrf_token %}
@@ -19,10 +18,8 @@
     </div>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav ms-auto">
-        <a class="nav-link {% if request.resolver_match.url_name == 'index' %}{% endif %} " aria-current="page" href="{% url 'index' %}">Home</a>
-        <a class="nav-link {% if request.resolver_match.url_name == '#' %}{% endif %}" href="#">Categories</a>
         <a class="nav-link {% if request.resolver_match.url_name == 'brands' %}{% endif %}" href="{% url 'brands' %}">Brands</a>
-        <a class="nav-link {% if request.resolver_match.url_name == '#' %}{% endif %}" href="#">Projects</a>
+        <a class="nav-link {% if request.resolver_match.url_name == '#' %}{% endif %}" href="{% url "project_list" %}">Projects</a>
         <a class="nav-link {% if request.resolver_match.url_name == 'wishlist' %}{% endif %}" href="{% url "wishlist" %}">WishList</a>
         <a class="nav-link {% if request.resolver_match.url_name == 'cart' %}{% endif %}" href="{% url "cart" %}">Cart</a>
         <a class="nav-link {% if request.resolver_match.url_name == 'orders' %}{% endif %}" href="{% url "orders" %}">Orders</a>

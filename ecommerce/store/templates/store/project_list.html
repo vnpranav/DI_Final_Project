@@ -1,0 +1,28 @@
+{% extends "store/layouts/main.html" %}
+
+{% block title %}
+{{project.name}}
+{% endblock title %}
+
+{% block content %}
+<div class="container mt-3">
+   <h1 class="mb-2">Projects</h1>
+   <hr/>
+   <div class="row mt-3">
+       {% for project in projects %}
+           <div class="col-md-4 mb-4">
+               <div class="card">
+                   <img src="/static/{{project.project_image}}" class="card-img-top" alt="{{ project.name }}">
+                   <div class="card-body">
+                       <h5 class="card-title">{{ project.name }}</h5>
+                       <p class="card-text">{{ project.short_description }}</p>
+                       <div class="text-center"><a href="{% url 'project_detail' project.slug %}" class="btn btn-primary">View Project</a></div>
+                   </div>
+               </div>
+           </div>
+       {% endfor %}
+
+
+{% endblock content %}
+
+
