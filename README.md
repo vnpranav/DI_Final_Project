@@ -24,4 +24,4 @@ Front end : Html Css (Bootstrap) Javascript Django
 Back end : Django
 Database : postgres using neondb
 
-project link deployed: wr3-driven-babbage.circumeo-apps.net
+project link deployed: (https://wr3-driven-babbage.circumeo-apps.net/)
