@@ -27,13 +27,19 @@ def brand_view(request, slug):
       return redirect('brands')
    
 def product_view(request, brand_slug, prod_slug):
-   if (Product.objects.filter(slug=prod_slug, brand__slug=brand_slug, status=0)):
-      product = Product.objects.filter(slug=prod_slug, brand__slug=brand_slug).first()
-      context = {'product' : product }
-      return render(request, 'store/products/product.html', context)
+   product = Product.objects.filter(slug=prod_slug, brand__slug=brand_slug, status=0).first()
+    
+   if product:
+        # Get compatible products
+        compatible_products = product.compatible_products.all()
+        context = {
+            'product': product,
+            'compatible_products': compatible_products
+        }
+        return render(request, 'store/products/product.html', context)
    else:
-      messages.warning(request, "No such product found")
-      return redirect('brands')
+        messages.warning(request, "No such product found")
+        return redirect('brands')
    
 def productlist(request):
    products = Product.objects.filter(status=0).values_list('name', flat=True)

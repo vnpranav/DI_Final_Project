@@ -71,6 +71,7 @@ class Product(models.Model):
    status = models.BooleanField(default=False, help_text="0=default, 1=hidden")
    trending = models.BooleanField(default=False, help_text="0=default, 1=trending")
    tag = models.CharField(max_length=150, null=False, blank=False)
+   compatible_products = models.ManyToManyField('self', blank=True, symmetrical=False, related_name='compatibility')
 
    meta_title = models.CharField(max_length=150, null=False, blank=False)
    meta_keywords = models.CharField(max_length=150, null=False, blank=False)

@@ -74,6 +74,31 @@
                         {{product.description}}
                      </p>
                   </div>
+
+                  {% if compatible_products %}
+                            <div class='col-md-12'>
+                                <hr/>
+                                <h3>Compatible Products</h3>
+                                <div class='row'>
+                                    {% for comp_product in compatible_products %}
+                                        <div class='col-md-3'>
+                                            <div class='card'>
+                                                {% if comp_product.product_image %}
+                                                    <img src="/static/{{ comp_product.product_image }}" class='card-img-top' alt='image' height="220px" width="200px">
+                                                {% else %}
+                                                    <img src="/static/default.jpg" class='card-img-top' alt='image'>
+                                                {% endif %}
+                                                <div class='card-body'>
+                                                    <h5 class='card-title'>{{ comp_product.name }}</h5>
+                                                    <p class='card-text'>Rs {{ comp_product.selling_price | stringformat:'d' }}</p>
+                                                    <div class="text-center"><a href="{% url 'product_view' comp_product.brand.slug comp_product.slug %}" class='btn btn-primary'>View Details</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
                </div>
             </div>
          </div>
