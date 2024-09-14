@@ -6,7 +6,7 @@ My orders
 
 {% block content %}
 
-<div class="bg-primary">
+<div class="bg-primary py-3">
 <div class='container'>
    <a class="text-white" href="{%url 'index'%}">Home / </a>
    <a class="text-white" href="{%url 'orders'%}">Orders / </a>
@@ -37,7 +37,7 @@ My orders
                            <label>Address</label>
                            <div class="border p-1 mt-2">{{order.address}} , {{order.city}} , {{order.state}} , {{order.country}}</div>
                            <label>Zip Code</label>
-                           <div class="border p-1 mt-2">{{order.zip}}</div>
+                           <div class="border p-1 mt-2">{{order.zipcode}}</div>
                         </div>
                         <div class="col-md-6">
                            <table class='table table-striped'>
